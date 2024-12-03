@@ -17,18 +17,20 @@ function FazzFood(harga, promo, jarak, pajak) {
 
   // menentukan promo dan mencari total harga potongan
   let potongan = 0;
+
   if (promo === "FAZZFOOD50" || promo === "DITRAKTIR60") {
-    // jika promo yang dimasukkan FAZZFOOD50
+    // Jika promo yang dimasukkan FAZZFOOD50
     if (promo === "FAZZFOOD50") {
       if (harga >= 50000) {
-        potongan = harga * (50 / 100);
+        potongan = Math.min(harga * (50 / 100), 50000);
       } else {
         potongan = 0;
       }
     }
-    // Jika Promo yang dimasukkan DITRAKTIR60,
+    // Jika promo yang dimasukkan DITRAKTIR60
     if (promo === "DITRAKTIR60") {
       if (harga >= 25000) {
+        potongan = Math.min(harga * (60 / 100), 30000);
       } else {
         potongan = 0;
       }
